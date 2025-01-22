@@ -1,5 +1,9 @@
-const express = require('express')
-const cors = require('cors')
+import dotenv from 'dotenv'
+dotenv.config()
+import express from 'express'
+import cors from 'cors'
+import { ConnDB } from './config/db.config.js';
+
 
 const app = express()
 const PORT = process.env.PORT||1001;
@@ -17,4 +21,5 @@ app.get('/',(req,res)=>{
 
 app.listen(PORT,()=>{
     console.log(`Server is up on http://localhost:${PORT}`)
+    ConnDB()
 })
